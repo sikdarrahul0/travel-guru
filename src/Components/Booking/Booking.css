@@ -1,0 +1,29 @@
+.book-page{
+    background: url(https://i.ibb.co/gtfQq5V/Rectangle-1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 600px;
+}
+.booking-form{
+    width: 390px;
+    height: 327px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    margin-left: 150px;
+    padding: 8px 20px;
+    
+}
+.input-field{
+    background: #F2F2F2;
+    border: none;
+}
+.input-field-date{
+    width: 170px;
+    margin: 0 5px
+}
+.booking-btn{
+    padding: 4px 10px;
+    width: 340px;
+    height: 48px;
+    border-radius: 5px;
+}

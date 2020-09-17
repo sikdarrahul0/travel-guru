@@ -1,25 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { createContext, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import './App.css';
+import Booking from './Components/Booking/Booking';
+import CheckOut from './Components/CheckOut/CheckOut';
+import Login from './Components/Login/Login';
+import Main from './Components/Main/Main';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+
+export const UserContext = createContext({});
 
 function App() {
+  const [loggedIuser, setLoggedIuser] = useState();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={[loggedIuser, setLoggedIuser]}>
+    <Router>
+       <Switch>
+          <Route exact path="/">
+            <Main></Main>
+          </Route>
+          <Route path="/home">
+            <Main></Main>
+          </Route>
+          <Route path="/booking/:id">
+            <Booking></Booking>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <PrivateRoute path="/checkout">
+            <CheckOut></CheckOut>
+          </PrivateRoute>
+          <Route path="*">
+              Error 404
+          </Route>
+       </Switch>
+    </Router>
+    
+    </UserContext.Provider>
   );
 }
 

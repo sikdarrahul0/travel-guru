@@ -1,0 +1,23 @@
+.logo-img{
+    height: 56px;
+}
+.nav-item{
+    margin: 0 20px;
+}
+/* .fontAwesome {
+    font-family: 'Helvetica', FontAwesome, sans-serif;
+  } */
+.search-field{
+    width: 240px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.login-btn{
+    background: #FFC107;
+    border-radius: 5px;
+    padding: 0 12px;
+    color: black;
+    font-weight: bold;
+}
