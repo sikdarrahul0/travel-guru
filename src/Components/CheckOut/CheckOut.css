@@ -1,0 +1,23 @@
+.checkout-page{
+    margin-top: 150px;
+}
+.hotel-data{
+    display: flex;
+    margin: 20px 10px;
+    margin-bottom: 40px;
+}
+.hotel-data img{
+    width: 250px;
+    height: 210px;
+    margin-right: 20px;
+}
+.hotel-info{
+    display: flex;
+}
+.hotel-info p{
+    margin: 0 5px;
+}
+.info{
+    height: 130px;
+    margin-left: 20px;
+}

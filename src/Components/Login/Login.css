@@ -1,5 +1,5 @@
 .form-design{
-    margin: 30px 295px;
+    margin: 150px 295px;
     margin-bottom: 10px;
     width: 450px;
     padding: 15px;
@@ -20,6 +20,8 @@
     width: 390px;
     height: 40px;
     background: #F9A51A;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 .fb-google-login{
     margin: 10px;

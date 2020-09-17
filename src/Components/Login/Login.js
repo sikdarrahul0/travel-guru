@@ -9,7 +9,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 initializeLogin();
 
 const Login = () => {
-    const [loggedIuser, setLoggedIuser] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const textField = useRef(null);
     const [newUser, setNewUser] = useState(false);
     const [error, setError] = useState();
@@ -26,9 +26,10 @@ const Login = () => {
     let { from } = location.state || { from: { pathname: "/" } };
 
     const handleSubmit = (e) =>{
-        
+        e.preventDefault();
+       
         if(newUser){
-            e.preventDefault();
+            
             if(user.email && user.password === user.confirmPassword){
                 createUserWithEmailAndPassword(`${user.firstname} ${user.lastname}`, user.email, user.password)
                 .then(res =>{
@@ -100,14 +101,10 @@ const Login = () => {
       }
       const handleResponse = (res, redirect)=>{
           setUser(res);
-          setLoggedIuser(res);
+          setLoggedInUser(res);
           if(redirect){
             history.replace(from);
           }
-      }
-      const handleNewUser = ()=>{
-        setNewUser(!newUser);
-        textField.current.value = '';
       }
     return (
         <section className="login-page">
@@ -127,8 +124,8 @@ const Login = () => {
                      newUser && <input className="login-input" type="text" name="lastname" onBlur={handleBlur} placeholder="Last Name" required/>
                 }
                 <br/>
-                <input className="login-input" ref={textField} type="email" name="email" onBlur={handleBlur} placeholder="Username or Email" required/><br/>
-                <input className="login-input" ref={textField} type="password" name="password" onBlur={handleBlur} placeholder="Password" required/><br/>
+                <input className="login-input" value={user.email} onChange={(e)=> setUser({...user, email: e.target.value})} type="email" name="email" onBlur={handleBlur} placeholder="Username or Email" required/><br/>
+                <input className="login-input" value={user.password}  onChange={(e)=> setUser({...user, password: e.target.value})} type="password" name="password" onBlur={handleBlur} placeholder="Password" required/><br/>
                 {
                     newUser && <input className="login-input" type="password" name="confirmPassword" onBlur={handleBlur} placeholder="Confirm Password" required/>
                 }
@@ -137,7 +134,7 @@ const Login = () => {
             </form>
                {
                 newUser ? <p>Already have an account? <button onClick={() => setNewUser(!newUser)} style={{border: 'none', color:'#F9A51A', backgroundColor: 'white'}}>Login</button> </p> :
-                <p>Don’t have an account? <button onClick={() => handleNewUser()} style={{border: 'none', color:'#F9A51A', backgroundColor: 'white'}}>Create an account</button></p>
+                <p>Don’t have an account? <button onClick={() =>setNewUser(!newUser)} style={{border: 'none', color:'#F9A51A', backgroundColor: 'white'}}>Create an account</button></p>
                
                }
             
@@ -148,7 +145,6 @@ const Login = () => {
                     <h5>Or</h5>
                     <button onClick={fbSignIn} className="fb-google-login"><img style={{width: '20px', marginRight: '20px'}} src={fbLogo} alt="fb-logo"/>Continue with Facebook</button><br/>
                     <button onClick={googleSignIn} className="fb-google-login"><img style={{width: '20px', marginRight: '20px'}} src={googleLogo} alt="google-logo"/>Continue with Google</button>
-
                 </div>
         </section>
     );

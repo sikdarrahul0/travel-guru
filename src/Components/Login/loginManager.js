@@ -44,6 +44,7 @@ export const createUserWithEmailAndPassword = (name, email, password) =>{
 export const signInWithEmailandPassword = (email, password) =>{
    return firebase.auth().signInWithEmailAndPassword(email, password)
    .then(res => {
+        console.log(res);
         const newUser = res.user;
         return newUser;
    })

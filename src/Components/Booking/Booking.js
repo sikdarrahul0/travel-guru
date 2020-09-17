@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './Booking.css';
 import touristSpotData from '../../touristSpotData/touristSpotData';
-import Header from '../Header/Header';
 
 const Booking = () => {
     const {id} = useParams();
@@ -12,8 +11,7 @@ const Booking = () => {
         <>
         <section className="book-page">
             <div className="inner">
-            <Header></Header>
-            <div style={{display: 'flex'}}>
+            <div style={{display: 'flex', paddingTop: '130px'}}>
                <div className="spot-info">
                     <h1>{place.title}</h1>
                     <p>{place.details}</p>
@@ -40,7 +38,7 @@ const Booking = () => {
                                 min="2020-09-18" max="2021-12-31"></input>
                             </div>
                         </div>
-                        <Link to="/checkout"><button className="booking-btn btn-warning">Start Booking</button></Link>
+                        <Link to={`/checkout/${place.title}`}><button className="booking-btn btn-warning">Start Booking</button></Link>
                     </form>
                 </div>
                 </div>

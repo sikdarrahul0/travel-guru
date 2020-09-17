@@ -7,6 +7,7 @@ import {
 import './App.css';
 import Booking from './Components/Booking/Booking';
 import CheckOut from './Components/CheckOut/CheckOut';
+import Header from './Components/Header/Header';
 import Login from './Components/Login/Login';
 import Main from './Components/Main/Main';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
@@ -14,10 +15,11 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 export const UserContext = createContext({});
 
 function App() {
-  const [loggedIuser, setLoggedIuser] = useState();
+  const [loggedInUser, setLoggedInUser] = useState();
   return (
-    <UserContext.Provider value={[loggedIuser, setLoggedIuser]}>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
     <Router>
+    <Header></Header>
        <Switch>
           <Route exact path="/">
             <Main></Main>
@@ -31,7 +33,7 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <PrivateRoute path="/checkout">
+          <PrivateRoute path="/checkout/:title">
             <CheckOut></CheckOut>
           </PrivateRoute>
           <Route path="*">
