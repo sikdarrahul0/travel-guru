@@ -12,10 +12,10 @@ import Login from './Components/Login/Login';
 import Main from './Components/Main/Main';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
-export const UserContext = createContext({});
+export const UserContext = createContext();
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState();
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
     <Router>

@@ -2,11 +2,11 @@
     background: url(https://i.ibb.co/gtfQq5V/Rectangle-1.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    min-height: 600px;
+    min-height: 700px;
 }
 .inner{
     background-color: rgba(0, 0, 0, 0.7);
-    min-height: 600px;
+    min-height: 700px;
 }
 .spot-info{
     color: #fff;

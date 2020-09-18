@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css';
 import fbLogo from '../../Icon/fb.png';
 import googleLogo from '../../Icon/google.png';
@@ -10,7 +10,6 @@ initializeLogin();
 
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const textField = useRef(null);
     const [newUser, setNewUser] = useState(false);
     const [error, setError] = useState();
     const [user, setUser] = useState({
@@ -47,7 +46,7 @@ const Login = () => {
             }
             else{
                 const newUser = {...user};
-                newUser.message = 'something wrong';
+                newUser.message = 'password not matched';
                 setUser(newUser);
             }
         }
@@ -66,7 +65,7 @@ const Login = () => {
         })
     }
     const fbSignIn = ()=>{
-        fbSignInPopup()
+         fbSignInPopup()
         .then(res =>{
             handleResponse(res, true);
         })
@@ -105,6 +104,7 @@ const Login = () => {
           if(redirect){
             history.replace(from);
           }
+          
       }
     return (
         <section className="login-page">

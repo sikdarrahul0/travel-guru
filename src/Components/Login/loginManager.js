@@ -14,7 +14,7 @@ export const googleSignInPopup = () =>{
    return newUser;
   }).catch(error =>{
    const newUser = {};
-   newUser.ErrorMsg = error.message;
+   newUser.message = error.message;
    return newUser;
   });
 }
@@ -26,7 +26,7 @@ export const fbSignInPopup = ()=> {
    return newUser;
   }).catch(error =>{
     const newUser = {}
-    newUser.ErrorMsg = error.message;
+    newUser.message = error.message;
   });
 }
 export const createUserWithEmailAndPassword = (name, email, password) =>{
@@ -44,13 +44,12 @@ export const createUserWithEmailAndPassword = (name, email, password) =>{
 export const signInWithEmailandPassword = (email, password) =>{
    return firebase.auth().signInWithEmailAndPassword(email, password)
    .then(res => {
-        console.log(res);
         const newUser = res.user;
         return newUser;
    })
    .catch(error => {
         const newUser = {};
-        newUser.ErrorMsg = error.message;
+        newUser.message = error.message;
         return newUser;
       });
 }

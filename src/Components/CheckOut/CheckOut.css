@@ -21,3 +21,8 @@
     height: 130px;
     margin-left: 20px;
 }
+.google-map{
+    position: absolute;
+    right: 30px;
+    margin-top: 20px;
+}

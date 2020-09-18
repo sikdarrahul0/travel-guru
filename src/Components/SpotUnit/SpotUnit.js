@@ -7,19 +7,13 @@ const SpotUnit = (props) => {
         background: `url(${img})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        width: "270px",
-        height: "416px",
-        borderRadius: "20px",
-        margin: "0 10px",
-        color: "white",
-        position: "relative",
-        border: "none"  
+        
     }
     return (
         <>
-        <button style={design} onClick={()=>props.handleChange(id)}>
+        <div className="spot-div" style={design} onClick={()=>props.handleChange(id)}>
             <h4 className="title-design">{title}</h4>
-        </button>
+        </div>
         </>
     );
 };

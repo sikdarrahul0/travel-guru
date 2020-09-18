@@ -3,3 +3,15 @@
     position: absolute;
     bottom: 10px;
 }
+.spot-div{
+    width: 270px;
+    height: 416px;
+    border-radius: 20px;
+    margin: 0 10px;
+    color: white;
+    position: relative;
+    border: none;
+}
+.spot-div:active{
+    border: 2px solid #FFC107;
+}

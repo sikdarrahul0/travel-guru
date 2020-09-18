@@ -18,11 +18,11 @@ const Main = () => {
         <>
         <section className="main-page">
             <div className="inner">
-            <div style={{display: 'flex', paddingTop: '130px'}}>
+            <div style={{display: 'flex', paddingTop: '185px'}}>
             <div className="spot-info">
                 <h1>{spot.title}</h1>
                 <p>{spot.summary}</p>
-                <Link to={`/booking/${spot.id}`}><Button className="btn btn-warning">Booking <FontAwesomeIcon icon={ faArrowRight } /></Button></Link>
+                <Link to={`/booking/${spot.id}`}><Button className="btn btn-warning mt-4">Booking <FontAwesomeIcon icon={ faArrowRight } /></Button></Link>
             </div>
             {
                 touristSpotData.map(place => <SpotUnit place={place} key={place.id} handleChange={handleChange} ></SpotUnit>)
